@@ -1,0 +1,11 @@
+<!-- This is for the plugin custom -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Learning\HelloPage\Controller\Index\Example">
+        <plugin name="Learning_HelloPage_Plugin" type="Learning\HelloPage\Plugin\ExamplePlugin" sortOrder="10" disabled="false"  />
+    </type>
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="Learning_HelloPage_Plugin_Sku" type="Learning\HelloPage\Plugin\Product" sortOrder="1" disabled="false"/>
+    </type>
+</config>
+
+

@@ -1,0 +1,20 @@
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="product.info.stock.sku" destination="product.info.price" after="product.price.final"/>
+        <move element="product.info.review" destination="product.info.main" after="product.info.price"/>
+        <!-- Agregamos un container a product.info.price -->
+        <!--
+        <referenceContainer name="product.info.price">
+            <container name="new-price" htmlTag="div" htmlClass="priceClass">
+                <block class="Magento\Framework\View\Element\Template" name="new-block-price" before="-" template="Magento_Catalog::html/product.phtml" cacheable="false" />
+            </container> 
+        </referenceContainer>
+        -->
+        <referenceBlock name="content" template="Magento_Catalog::popup-content-price.phtml"/>
+        
+        <referenceContainer name="product.info.price">
+            <block class="CompanyExtension\Customer\Block\ExtensionClass" name="some.block.name2" template="CompanyExtension_Customer::data-customer.phtml" />
+        </referenceContainer>
+        
+    </body>
+</page>

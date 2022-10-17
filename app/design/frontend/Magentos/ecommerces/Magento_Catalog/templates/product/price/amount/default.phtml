@@ -1,0 +1,82 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+<?php /** @var $block \Magento\Framework\Pricing\Render\Amount */ ?>
+<h7><?php echo "=".$block->escapeHtml($block->getWelcomeText()) ?></h7>
+<span class="price-container <?= $block->escapeHtmlAttr($block->getAdjustmentCssClasses()) ?>"
+        <?= $block->getSchema() ? ' itemprop="offers" itemscope itemtype="http://schema.org/Offer"' : '' ?>>
+    <?php if ($block->getDisplayLabel()) :?>
+        <span class="price-label"><?= $block->escapeHtml($block->getDisplayLabel()) ?></span>
+    <?php endif; ?>
+    <span <?php if ($block->getPriceId()) :?> id="<?= $block->escapeHtmlAttr($block->getPriceId()) ?>"<?php endif;?>
+        <?= ($block->getPriceDisplayLabel()) ? 'data-label="' . $block->escapeHtmlAttr($block->getPriceDisplayLabel() . $block->getPriceDisplayInclExclTaxes()) . '"' : '' ?>
+        data-price-amount="<?= $block->escapeHtmlAttr($block->getDisplayValue()) ?>"
+        data-price-type="<?= "" /* $block->escapeHtmlAttr($block->getPriceType()) */ ?>"
+        class="price-wrapper <?= $block->escapeHtmlAttr($block->getPriceWrapperCss()) ?>"
+    >
+        <div data-bind="mageInit: {'Magento_Catalog/js/popup__':{}}" > </div>
+        <div data-bind="scope:'custom-product-content'" data-content="<?=$block->getDisplayValue()?>">
+            <a class="action popup-open__ precio" data-bind="click: changeContent" href="#"> 
+                <!-- <div data-bind="text: price" > -->
+                <div>
+                    <?php
+                        $price = $block->getDisplayValue(); //$block->escapeHtml($block->formatCurrency($block->getDisplayValue(), (bool)$block->getIncludeContainer()), ['span']); 
+                        echo $price;
+                    ?>
+                </div>
+            <a/>
+        </div>    
+    </span>         
+    
+    <?php if ($block->hasAdjustmentsHtml()) :?>
+        <?= $block->getAdjustmentsHtml() ?>
+    <?php endif; ?>
+    <?php if ($block->getSchema()) :?>
+        <meta itemprop="price" content="<?= $block->escapeHtmlAttr($block->getDisplayValue()) ?>" />
+        <meta itemprop="priceCurrency" content="<?= $block->escapeHtmlAttr($block->getDisplayCurrencyCode()) ?>" />
+    <?php endif; ?>
+</span>
+
+<div id="popup__" style="display: none;" data-bind="scope:'custom-product-content'">
+    <?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $customerSession = $objectManager->create('Magento\Customer\Model\Session');
+    //$customerSession = $objectManager->create('Magento\Customer\Model\SessionFactory');
+
+    if ($customerSession->isLoggedIn()) {
+        /*
+        echo $customerSession->getCustomerId();  // get Customer Id
+        echo "-".$customerSession->getCustomerGroupId();
+        */
+
+        echo "Hello ".$customerSession->getCustomer()->getName();  // get  Full Name<
+        echo ",&nbsp;your email is <b>".$customerSession->getCustomer()->getEmail()."</b>"; // get Email
+    }
+    ?>
+    <div style="display:flex">
+        <div>
+            Precio: 
+        </div>
+        <div data-bind="text: price" ></div>
+    </div>  
+    Change the price: <input data-bind="value: price" value="" />
+   <?php // echo $this->getChildHtml('popup-content-price') ?> 
+</div>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "custom-product-content": {
+                    "component": "Magento_Catalog/js/knockoutjs-product",
+                    "price": <?= /* @escapeNotVerified */ $price ?>
+                }
+            }
+        }
+    }
+}
+</script>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Learning_HelloPage::greetings" title="Greetings Section" translate="title" module="Learning_HelloPage" parent="Magento_Backend::content" sortOrder="50" dependsOnModule="Learning_HelloPage" resource="Learning_HelloPage::greetings"/>
+        <add id="Learning_HelloPage::greetings_page" title="Hello World Option" translate="title" module="Learning_HelloPage" parent="Learning_HelloPage::greetings" sortOrder="10" dependsOnModule="Learning_HelloPage" action="testadmin/page/view" resource="Learning_HelloPage::greetings"/>
+    </menu>
+</config>

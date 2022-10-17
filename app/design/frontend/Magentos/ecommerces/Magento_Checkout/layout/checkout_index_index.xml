@@ -1,0 +1,51 @@
+<?xml version="1.0"?> 
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"> 
+    <body> 
+        <referenceBlock name="checkout.root"> 
+            <arguments> 
+                <argument name="jsLayout" xsi:type="array"> 
+                    <item name="components" xsi:type="array"> 
+                        <item name="checkout" xsi:type="array"> 
+                            <item name="children" xsi:type="array"> 
+                                <item name="steps" xsi:type="array"> 
+                                    <item name="children" xsi:type="array"> 
+                                        <item name="billing-step" xsi:type="array"> 
+                                            <item name="children" xsi:type="array"> 
+                                                <item name="payment" xsi:type="array"> 
+                                                    <item name="children" xsi:type="array"> 
+                                                        <item name="payments-list" xsi:type="array"> 
+                                                            <item name="children" xsi:type="array"> 
+                                                                <item name="order-comment" xsi:type="array"> 
+                                                                   <item name="component" xsi:type="string">Magento_Checkout/js/checkout-popup-note</item>  
+                                                                    <item name="displayArea" xsi:type="string">before-place-order</item> 
+                                                                    <item name="dataScope" xsi:type="string">checkoutpopup</item> 
+                                                                    <item name="provider" xsi:type="string">checkoutProvider</item> 
+                                                                </item> 
+                                                            </item> 
+                                                        </item> 
+                                                    </item> 
+                                                </item> 
+                                            </item> 
+                                        </item> 
+                                    </item> 
+                                </item> 
+                            </item> 
+                        </item> 
+                    </item> 
+                </argument> 
+            </arguments> 
+        </referenceBlock>
+        <referenceContainer name="footer"> 
+            <block class="Magento\Framework\View\Element\Template" name="popup_" as="popup_" template="Magento_Checkout::popup_.phtml" after="-"> 
+            </block> 
+        </referenceContainer> 
+        <!--
+        <referenceContainer name="footer">
+          <block class="Magento\Framework\View\Element\Template" name="note-popup" as="note-popup" template="Magento_Checkout::note.phtml" after="-">
+              <block class="Magento\Framework\View\Element\Template" name="popup" as="popup" template="Magento_Checkout::popup.phtml" after="-">
+              </block>
+          </block>
+        </referenceContainer>
+        -->
+    </body> 
+</page>

@@ -1,0 +1,67 @@
+<view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/view.xsd">
+  <vars module="Magento_Catalog">
+    <var name="breakpoints">
+        <var name="mobile">
+            <var name="conditions">
+                <var name="max-width">720px</var>
+            </var>
+        </var>
+    </var>
+  </vars>
+  <media>
+    <images module="Magento_Catalog">
+      <image id="unique_image_id" type="image_type">
+        <width>10</width>
+        <height>10</height>
+        <background>[255, 255, 0]</background>
+      </image>
+      <image id="category_page_grid" type="small_image">  <!-- la imagen del listado ppal grid-->
+        <width>90</width>
+        <height>90</height>
+        <background>[0, 255, 0]</background>
+      </image>
+      <image id="product_page_image_medium" type="image">
+        <width>650</width> <!-- Image width in px -->
+        <height>650</height> <!-- Image height in px -->
+        <background>[255, 255, 0]</background>
+      </image>
+      <image id="product_page_image_medium" type="swatch_image">
+        <width>650</width> <!-- Image width in px -->
+        <height>650</height> <!-- Image height in px -->
+        <background>[255, 255, 0]</background>
+      </image>
+      <image id="product_page_image_medium" type="swatch_thumb">
+        <width>650</width> <!-- Image width in px -->
+        <height>650</height> <!-- Image height in px -->
+        <background>[255, 255, 0]</background>
+      </image>
+      <image id="product_page_image_medium" type="thumbnail"> <!-- la imagen ppal dentro de la categoria-->
+        <width>650</width> <!-- Image width in px -->
+        <height>650</height> <!-- Image height in px -->
+        <background>[0, 0, 255]</background>
+      </image>
+
+
+      <image id="swatch_image" type="swatch_image">
+        <width>30</width>
+        <height>20</height>
+        <background>[255, 0, 0]</background>
+      </image>
+      <image id="swatch_thumb" type="swatch_thumb">
+          <width>110</width>
+          <height>90</height>
+          <background>[255, 0, 0]</background>
+      </image>
+      <image id="swatch_image_base" type="swatch_image">
+          <width>30</width>
+          <height>20</height>
+          <background>[255, 0, 0]</background>
+      </image>
+      <image id="swatch_thumb_base" type="swatch_thumb">
+          <width>110</width>
+          <height>90</height>
+          <background>[255, 0, 0]</background>
+      </image>
+    </images>
+  </media>
+</view>

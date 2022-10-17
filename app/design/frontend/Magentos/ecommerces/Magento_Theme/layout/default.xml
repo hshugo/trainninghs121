@@ -1,0 +1,58 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!--
+        <referenceContainer name="content">
+            <block name="customer_account_knockout_test" template="Magento_Theme::account/knockout.phtml" cacheable="false"/>
+        </referenceContainer>
+        -->
+        <referenceContainer name="footer">
+            <block class="Magento\Framework\View\Element\Template" name="note-popup" as="note-popup" template="Magento_Theme::note.phtml" after="-">
+                <block class="Magento\Framework\View\Element\Template" name="popup" as="popup" template="Magento_Theme::popup.phtml" after="-">
+                   <!-- <block class="Magento\Cms\Block\Block" name="popup-content">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">popup-content</argument>
+                        </arguments>
+                    </block>
+                -->
+                </block>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="page.main.title" template="Magento_Theme::new_template.phtml"/>
+        <referenceContainer name="page.main.title">
+            <block class="Magento\Cms\Block\Block" name="block_identifier">
+                <arguments>
+                    <!-- Here is the CMS Block id -->
+                    <argument name="block_id" xsi:type="string">changed_cms_block_identifier</argument>
+                </arguments>
+            </block> <!-- No funciono -->
+        </referenceContainer>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/youtube.svg</argument>
+                <argument name="logo_width" xsi:type="number">300</argument>
+                <argument name="logo_height" xsi:type="number">300</argument>
+                <argument name="logo_alt" xsi:type="string">Desea Ingresar a youtube??---</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="page.main.title">
+            <arguments>
+                <argument name="css_class" xsi:type="string">my-new-block-class222</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceContainer name="header.container">
+            <container name="new-header" htmlTag="div" htmlClass="fusionHeader" after="header.panel.wrapper">
+                <block class="Magento\Framework\View\Element\Template" name="fusion-header" before="-" template="Magento_Theme::html/header/header.phtml" cacheable="false" />
+            </container>
+        </referenceContainer>
+        <move element="top.search" destination="header.panel" before="-" />
+        <move element="minicart" destination="header.panel" before="-" /> 
+        <referenceContainer name="footer">
+            <referenceBlock name="copyright" remove="true" />
+            <referenceBlock name="form.subscribe" remove="false" />
+        </referenceContainer>
+        <referenceContainer name="page.wrapper" htmlId="MyWrapper"/>
+        <attribute name="data-role" value="my-body-role"/>
+        <attribute name="id" value="my-new-body-id"/>
+        <!-- <referenceContainer name="page.wrapper" htmlClass="my-new-page-wrapper-class second-class"/> --><!-- changing the classes to container-->
+    </body>
+</page>
